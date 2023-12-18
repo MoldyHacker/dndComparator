@@ -2,13 +2,22 @@
 *   dependencies
 */
 
-const express = require('express')
+const express = require('express');
+const axios = require('axios');
+const cheerio = require('cheerio');
+const cors = require('cors');
 
 /*
 *   config - express
 */
 
 const app = express()
+
+/*
+*   config - cors
+*/
+
+app.use(cors());
 
 /*
 *   endpoint
@@ -18,7 +27,6 @@ app.get('/', (request, response) => {
   response.send('Hello NodeJS!')
   console.log('Endpoint active');
 })
-
 
 /*
 *   endpoint - posts
@@ -38,8 +46,6 @@ app.get('/posts', (request, response) => {
   response.send(posts)
   console.log('Endpoint posts active');
 })
-
-
 
 /*
 *   listen
